@@ -1,0 +1,53 @@
+% Identitas dokumen dan data kepenulisan
+\title{A Template for the arXiv Style}
+
+% Pilihan format blok kepenulisan:
+% \uniqueAffiliationtrue  : Format standar (afiliasi tertera di bawah nama masing-masing)
+% \uniqueAffiliationfalse : Format multi-afiliasi dengan penomoran indeks (authblk)
+\newif\ifuniqueAffiliation
+\uniqueAffiliationtrue
+
+\ifuniqueAffiliation
+    \author{
+        \href{https://orcid.org/0000-0000-0000-0000}{%
+            \includegraphics[scale=0.06]{orcid.pdf}\hspace{1mm}David S.~Hippocampus%
+        }\thanks{Use footnote for providing further information about author (webpage, alternative address)---not for acknowledging funding agencies.} \\
+        Department of Computer Science\\
+        Cranberry-Lemon University\\
+        Pittsburgh, PA 15213 \\
+        \texttt{hippo@cs.cranberry-lemon.edu} \\
+        \And
+        \href{https://orcid.org/0000-0000-0000-0000}{%
+            \includegraphics[scale=0.06]{orcid.pdf}\hspace{1mm}Elias D.~Striatum%
+        } \\
+        Department of Electrical Engineering\\
+        Mount-Sheikh University\\
+        Santa Narimana, Levand \\
+        \texttt{stariate@ee.mount-sheikh.edu} \\
+    }
+\else
+    \usepackage{authblk}
+    \renewcommand\Authfont{\bfseries}
+    \setlength{\affilsep}{0em}
+    \newbox{\orcid}\sbox{\orcid}{\includegraphics[scale=0.06]{orcid.pdf}} 
+
+    \author[1]{%
+        \href{https://orcid.org/0000-0000-0000-0000}{\usebox{\orcid}\hspace{1mm}David S.~Hippocampus\thanks{\texttt{hippo@cs.cranberry-lemon.edu}}}%
+    }
+    \author[1,2]{%
+        \href{https://orcid.org/0000-0000-0000-0000}{\usebox{\orcid}\hspace{1mm}Elias D.~Striatum\thanks{\texttt{stariate@ee.mount-sheikh.edu}}}%
+    }
+    \affil[1]{Department of Computer Science, Cranberry-Lemon University, Pittsburgh, PA 15213}
+    \affil[2]{Department of Electrical Engineering, Mount-Sheikh University, Santa Narimana, Levand}
+\fi
+
+% Header halaman
+\renewcommand{\shorttitle}{arXiv Preprint Template}
+
+% Metadata berkas PDF
+\hypersetup{
+    pdftitle={A Template for the arXiv Style},
+    pdfsubject={cs.AI, cs.LG},
+    pdfauthor={David S. Hippocampus, Elias D. Striatum},
+    pdfkeywords={First keyword, Second keyword, More},
+}

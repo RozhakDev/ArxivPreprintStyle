@@ -1,0 +1,33 @@
+% ----------------------------------------------------------------------
+% Project     : arXiv Preprint Template
+% File        : Main.tex
+% Description : Root entry point for compiling preprint manuscript
+% Engine      : pdfLaTeX (recommended), XeLaTeX, LuaLaTeX
+% Compliance  : TeX Live 2020+, MiKTeX, arXiv submission guidelines
+% License     : SPDX-License-Identifier: MIT
+% ----------------------------------------------------------------------
+
+% Instruksi mesin arXiv untuk mengaktifkan kompilasi langsung pdfLaTeX
+\pdfoutput=1
+
+\documentclass{article}
+
+\usepackage{arxiv}
+
+\input{Pengaturan/Paket}
+\input{Pengaturan/Metadata}
+
+\begin{document}
+\maketitle
+
+\input{Konten/Abstrak}
+\input{Konten/Pendahuluan}
+\input{Konten/Hierarki_Format}
+\input{Konten/Contoh_Elemen}
+\input{Konten/Kesimpulan}
+\input{Konten/Ucapan_Terima_Kasih}
+
+\bibliographystyle{unsrtnat}
+\bibliography{Referensi/referensi}
+
+\end{document}
